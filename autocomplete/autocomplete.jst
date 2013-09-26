@@ -1,0 +1,30 @@
+	<div class="autocomplete_results">
+		<ul class="autocomplete_result_header">
+			<li class="autocomplete_header autocomplete_loading">Searching...</li>
+		[! if (dt.results.length) { !]
+			<li class="autocomplete_header autocomplete_match autocomplete_success">Nearest Matches:</li>
+		[! } else { !]
+			<li class="autocomplete_header autocomplete_match autocomplete_failure">No matches found.</li>
+		[! }; !]
+		</ul><!-- /.autocomplete_result_header -->
+	
+		<ul>
+		[!
+			var counter = 0, limit = dt.results.length;
+			while (counter < limit) { !]
+			<li class="autocomplete_result">
+				[! if (dt.regex) { !]
+					[!= dt.results[counter][dt.propertyName].replace(dt.regex, '<strong>$&</strong>') !]
+				[! } else {!]
+					[!= dt.results[counter][dt.propertyName] !]
+				[! }; !]
+			</li>
+		[! counter++; }; !]
+		</ul>
+
+		[! if (dt.allowNew) { !]
+		<ul class="autocomplete_new">
+			<li class="autocomplete_new_item"><em>create new</em><br/><strong>[!= dt.text !]</strong></li>
+		</ul>
+		[! }; !]
+	</div><!-- /.autocomplete_results -->

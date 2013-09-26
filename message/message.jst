@@ -1,0 +1,30 @@
+<div class="message message-[!= dt.type !] clearfix">
+	[! var lsf_map = {
+		'success': 'check',
+		'info': 'info',
+		'warning': 'bell',
+		'error': 'trouble'
+	}; !]
+
+	<div class="closetab">
+		<div class="emblem">&times;</div>
+	</div><!-- /.closetab -->
+
+	<div class="box">
+		<div class="icon">
+			<p><span class="lsf">[!= lsf_map[dt.type] !]</span></p>
+		</div><!-- /.icon -->
+
+		<div class="copy">
+			[! if (dt.hasOwnProperty('title')) { !]
+				<h3>[!= dt.title !]</h3>
+			[! }; !]
+
+			<p>[!= dt.message !]</h3>
+
+			[! if (dt.type === 'error') { !]
+				<p class="dismiss"><button class="btn btn-danger btn-small" data-message-action="dismiss">Dismiss</button></p>
+			[! }; !]
+		</div><!-- /.copy -->
+	</div><!-- /.box -->
+</div><!-- /.message -->

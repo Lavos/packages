@@ -1,0 +1,52 @@
+.cropper { padding: 20px; width: 732px; text-align: center; background-color: #efefef; }
+	.cropper .toolbar { padding: 0 0 10px 0; }
+	.cropper .crop_wrapper { display: inline-block; padding: 10px; background-color: white; border: 1px solid #ccc; box-shadow: 0 2px 5px rgba(0, 0, 0, .3); }
+	.cropper .croparea { position: relative; background-color: black; }
+	.cropper.dimmed .croparea .effective { opacity: .4; }
+	.cropper .full { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+	.cropper .widget { }
+		.cropper .widget .viewport { z-index: 1; position: absolute; border-width: 2px; border-style: dashed;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			cursor: move;
+		}
+
+		.cropper .widget .viewport.watermark { border-color: transparent; }
+		.cropper .widget .viewport.crop { border-color: black; }
+
+		.cropper .widget:hover {}
+		.cropper .widget:hover .viewport { z-index: 25; }
+		.cropper .widget:hover .viewport.crop { border-color: yellow; }
+		.cropper .widget.active .viewport.crop { border-color: red; }
+
+		.cropper .widget .widget_handle span { visibility: hidden; border: 1px solid #ccc; background-color: #efefef; }
+		.cropper .widget:hover .widget_handle span,
+		.cropper .widget.active .widget_handle span { visibility: visible; }
+
+		.cropper .widget:hover .widget_handle,
+		.cropper .widget.active .widget_handle { box-shadow: 0 1px 1px rgba(0, 0, 0, .2); }
+
+		.cropper .widget .widget_handle { height: 18px; width: 18px; }
+
+		.cropper .widget .widget_handle,
+		.cropper .widget .widget_handle span { position: absolute; }
+
+		.cropper .widget .widget_handle span { height: 16px; width: 16px; display: block; font-size: 16px; line-height: 18px; vertical-align: middle; text-align: center; color: #333; }
+
+		.cropper .widget .widget_handle.widget_handle_delete span { border: 1px solid red; background: red url(/ui/svg/white_x.svg); cursor: pointer; }
+		.cropper .widget .widget_handle.widget_handle_resize span { cursor: nwse-resize; background-image: url(/ui/svg/resize_nwse.svg); }
+		.cropper .widget .widget_handle.widget_handle_move span { cursor: move; }
+
+		.cropper .widget .widget_handle.widget_handle_nw { top: 0; left: 0; margin-left: -9px; margin-top: -9px; }
+		.cropper .widget .widget_handle.widget_handle_n  { top: 0; left: 50%; margin-left: -9px; margin-top: -9px; }
+		.cropper .widget .widget_handle.widget_handle_ne { top: 0; right: 0; margin-right: -9px; margin-top: -9px; }
+		.cropper .widget .widget_handle.widget_handle_e  { top: 50%; right: 0; margin-right: -9px; margin-top: -9px; }
+		.cropper .widget .widget_handle.widget_handle_se { bottom: 0; right: 0; margin-right: -9px; margin-bottom: -9px; }
+		.cropper .widget .widget_handle.widget_handle_s  { bottom: 0; right: 50%; margin-right: -9px; margin-bottom: -9px; }
+		.cropper .widget .widget_handle.widget_handle_sw { bottom: 0; left: 0; margin-left: -9px; margin-bottom: -9px; }
+		.cropper .widget .widget_handle.widget_handle_w  { top: 50%; left: 0; margin-left: -9px; margin-top: -9px; }
+
+		.cropper .widget .widget_star { display: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+		.cropper .widget .viewport.watermark .widget_star { display: block; background: transparent url(/ui/bundles/create/svg/star.svg); }

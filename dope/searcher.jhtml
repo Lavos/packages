@@ -1,0 +1,84 @@
+<script type="text/html" id="user_search_table_template">
+	<table class="table table-bordered table-caps">
+		<colgroup>
+			<col width="50"/>
+			<col data-shardviewer-sort-property="first_name" width="40%"/>
+			<col data-shardviewer-sort-property="last_name" width="40%"/>
+			<col width="20%"/>
+		</colgroup>
+
+		<thead>
+			<tr>
+				<th>Avatar</th>
+				<th data-shardviewer-sort-property="first_name">First Name</th>
+				<th data-shardviewer-sort-property="last_name">Last Name</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+
+		<tbody class="shardviewer_row_target"></tbody>
+	</table>
+</script>
+
+<script type="text/html" id="user_search_row_template">
+	<tr>
+		<td>
+			<img class="user_avatar" src="[!= dt.image !]"/>
+		</td>
+		<td>[!= dt.first_name !]</td>
+		<td>[!= dt.last_name !]</td>
+
+		<td>
+			<button class="btn btn-small btn-sucess lsf-bicon" data-action="select" data-index="[!= extra.index !]" lsf="check">Select</button>
+		</td>
+	</tr>
+</script>
+
+<script type="text/html" id="user_search_selected_template">
+	<span><img class="user_avatar" src="[!= dt.image !]"/> [!= dt.first_name !] [!= dt.last_name !]</span>
+</script>
+
+<script type="text/html" id="story_search_table_template">
+	<table class="table table-bordered table-caps">
+		<colgroup>
+			<col data-shardviewer-sort-property="title" width="40%"/>
+			<col data-shardviewer-sort-property="publish_date" width="40%"/>
+			<col width="20%"/>
+		</colgroup>
+
+		<thead>
+			<tr>
+				<th data-shardviewer-sort-property="title">Title</th>
+				<th data-shardviewer-sort-property="publish_date">Publish Date</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+
+		<tbody class="shardviewer_row_target"></tbody>
+	</table>
+</script>
+
+<script type="text/html" id="story_search_row_template">
+	<tr>
+		<td>[!= dt.title !]</td>
+		<td>[!
+			var story_date = new Date(dt.publish_date * 1000);
+
+			if (story_date > new Date()) { !]
+				Will be published
+			[! } else { !]
+				Published
+			[! }; !]
+
+			[!= extra.__.strftime('%Y-%m-%d %T %Z', story_date) !]
+		</td>
+
+		<td>
+			<button class="btn btn-small btn-sucess lsf-bicon" data-action="select" data-index="[!= extra.index !]" lsf="check">Select</button>
+		</td>
+	</tr>
+</script>
+
+<script type="text/html" id="story_search_selected_template">
+	<span>[!= dt.title !]</span>
+</script>

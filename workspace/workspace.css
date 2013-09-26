@@ -1,0 +1,19 @@
+.noscroll { overflow: hidden; height: auto; }
+
+.workspace { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: black; background-color: rgba(0, 0, 0, .7); overflow: hidden; z-index: 2000; }
+.workspace.workspace_show { display: block; }
+	.workspace .workspace_flex { position: absolute; left: 40px; right: 40px; overflow: auto; } 
+	.workspace .workspace_toolbar { display: none; top: 20px; overflow: visible; }
+		.workspace .workspace_toolbar .navbar-inner { min-height: 46px; background-color: #ccc; box-shadow: 0 1px 10px rgba(0, 0, 0, .6); 
+			background-image: -webkit-linear-gradient(#e0e0e0, white 90%, #e0e0e0 90%, #e0e0e0 100%);
+			background-image: -moz-linear-gradient(#e0e0e0, white 90%, #e0e0e0 90%, #e0e0e0 100%);
+			background-image: linear-gradient(#e0e0e0, white 90%, #e0e0e0 90%, #e0e0e0 100%);
+		}
+
+	.workspace.workspace_show_toolbar .workspace_toolbar { display: block; }
+
+	.workspace .workspace_main { top: 20px; bottom: 20px; box-shadow: 0 0 32px rgba(0, 0, 0, .7); background-color: #ccc; background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent); background-size: 30px 30px; }
+	.workspace.workspace_show_toolbar .workspace_main { top: 66px; }
+		.workspace .workspace_main .workspace_content { padding: 20px 20px 50px 20px; background-color: white; box-shadow: 0 0 16px rgba(0, 0, 0, .4); position: relative; }
+		.workspace .workspace_toolbar .workspace_content { padding: 0 7px; }
+			.workspace .workspace_toolbar .workspace_content p { text-align: right; line-height: 43px; }

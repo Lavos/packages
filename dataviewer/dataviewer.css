@@ -1,0 +1,9 @@
+.dataviewer { } 
+	.dataviewer [data-dataviewer-sort-by] { cursor: pointer; }
+
+	.dataviewer col.current { background-color: #eeffee; }
+
+	.dataviewer .actions button { opacity: .5 }
+
+	.dataviewer tbody tr:hover td { background-color: #ffffdd; }
+	.dataviewer tbody tr:hover td.actions button { opacity: 1; }

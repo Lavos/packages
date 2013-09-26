@@ -1,0 +1,311 @@
+<script type="text/html" id="story_template">
+
+	<div class="mode_master">
+		<div class="mode error">
+			errorst<div class="alert alert-error alert-block">
+				<p class="story_error_message">OMG THERE WAS AN ERROR!</p>
+				<p><button class="btn btn-danger dismiss_error">Dismiss</button></p>
+			</div><!-- /.alert.alert-error -->
+		</div><!-- /.mode.error -->
+
+		<div class="mode loading">
+			<p>loading...</p>
+		</div><!-- /.mode.loading -->
+
+		<div class="mode view">
+			<fieldset class="Story_specifics specifics">
+				<legend>Story Specifics</legend>
+
+				<div class="well well-small">
+					<button class="edit btn btn-info btn-small"><span class="lsf-bicon" lsf="setup">Edit</span></button>
+					<span class="dirty_indicator dirty_story label label-important">Unsaved Changes</span>
+
+					<div class="view_rep"></div><!-- /.view_rep -->
+				</div><!-- /.well -->
+			</fieldset><!-- /.story_specifics -->
+
+			<fieldset>
+				<legend>Story Collections</legend>
+			</fieldset>
+
+			<div class="collections target">
+				<div class="placeholder"></div>
+			</div><!-- /.collections -->
+
+			<div class="add_target"></div><!-- /.add_target -->
+		</div><!-- /.mode.view -->
+	</div><!-- /.mode_master -->
+
+	<div class="new_collection_buttons">
+	[!
+		var button_types = ['Text', 'Photo', 'Quote', 'Video', 'Audio', 'Poll', 'Misc', 'Cmp'];
+		var icon_map = {
+			text: 'alignleft',
+			photo: 'image',
+			quote: 'quote',
+			video: 'playmedia',
+			audio: 'music',
+			poll: 'checkbox',
+			misc: 'umbrella',
+			cmp: 'link'
+		};
+	!]
+
+		<p>
+			[! var counter = 0, limit = button_types.length;
+				while (counter < limit) {
+					var current = button_types[counter];
+
+					if (LUCID.schema.hasOwnProperty(current)) { !]
+						<button class="btn btn-small add_moment lsf-bicon" data-type="[!= current !]" lsf="[!= icon_map[current.toLowerCase()] !]">Add [!= current !]</button>
+					[! };
+
+					counter++;
+				};
+			!]
+		</p>
+	</div><!-- /.new_collection_buttons -->
+</script><!-- /#story_template -->
+
+<script type="text/html" id="collection_template">
+	<div class="inset clearfix">
+		<div class="actions">
+			<p><span class="handle lsf" title="move collection">menu</span></p>
+		</div><!-- /.actions -->
+
+		<div class="Collection_specifics specifics">
+			<div class="extras well well-small">
+				<p class="buttons">
+					<button class="edit btn btn-info btn-small lsf-bicon" lsf="setup">Edit</button>
+					<span class="dirty_indicator dirty_collection label label-important">Unsaved Changes</span>
+				</p>
+
+				<div class="view_rep"></div><!-- /.view_rep -->
+			</div><!-- /.extras -->
+		</div><!-- /.collection_specifics -->
+
+		<div class="nudge">
+			<div class="set_manipulation">
+				<p>
+					<button class="btn btn-small button_multiple" data-collection-action="gridedit"><span class="lsf-bicon" lsf="move">Rearrange Moments</span></button>
+				[!
+					var button_types = ['Text', 'Photo', 'Quote', 'Video', 'Audio', 'Poll', 'Misc', 'Cmp'];
+					var icon_map = {
+						text: 'alignleft',
+						photo: 'image',
+						quote: 'quote',
+						video: 'playmedia',
+						audio: 'music',
+						poll: 'checkbox',
+						misc: 'umbrella',
+						cmp: 'link'
+					};
+
+					var counter = 0, limit = button_types.length;
+					while (counter < limit) {
+						var current = button_types[counter];
+						if (LUCID.schema.hasOwnProperty(current)) { !]
+							<button class="btn btn-small add_moment lsf-bicon button_[!= current !] request_moment" data-type="[!= current !]" lsf="[!= icon_map[current.toLowerCase()] !]">Add [!= current !]</button>
+						[! };
+						counter++;
+					}; !]
+				</p>
+			</div><!-- /.set_manipulation -->
+
+			<div class="viewport-wrapper">
+				<div class="viewport depressed striped45">
+					<table cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr class="moments target">
+								<td class="placeholder"></td>
+							</tr><!-- /.moments -->
+						</tbody>
+					</table>
+				</div><!-- /.viewport -->
+
+				<div class="hortscroll left"></div>
+				<div class="hortscroll right"></div>
+			</div><!-- /.viewport-wrapper -->
+		</div><!-- /.nudge -->
+	</div><!-- /.inset -->
+</script><!-- /#collection_template -->
+
+<script type="text/html" id="moment_template">
+[!	var icon_map = {
+		text: 'alignleft',
+		photo: 'image',
+		quote: 'quote',
+		video: 'playmedia',
+		audio: 'music',
+		poll: 'checkbox',
+		misc: 'umbrella',
+		cmp: 'link'
+	};
+!]
+
+	<div class="moment-wrapper">
+		<div class="moment-inner">
+			<div class="header clearfix">
+				<div class="controls">
+					<p><span class="handle lsf">menu</span></p>
+				</div><!-- /.controls -->
+
+				<div class="left">
+					<p class="moment_type">[!= dt.options.type !]</p>
+				</div><!-- /.left -->
+
+				<div class="right">
+					<button class="edit btn btn-small btn-info lsf-bicon" lsf="setup">Edit</button>
+					<button class="remove btn btn-small btn-danger lsf-bicon" lsf="delete">Delete</button>
+				</div><!-- /.right -->
+			</div><!-- /.header -->
+
+			<div class="content">
+				<p class="text-right"><span class="dirty_indicator dirty_moment label label-important">Unsaved Changes</span></p>
+
+				<div class="mode_master">
+					<div class="mode error">
+						<div class="alert alert-error alert-block">
+							<p class="error_master"></p><!-- /.error_master -->
+							<p><a href="#dismiss" class="btn btn-danger view">Dismiss</a></p>
+						</div><!-- /.alert.alert-error -->
+					</div><!-- /.mode -->
+
+					<div class="mode loading">
+						<p>Loading...</p>
+					</div><!-- /.mode -->
+
+					<div class="mode view_rep view"></div><!-- /.mode -->
+				</div><!-- /.mode_master -->
+			</div><!-- /.content -->
+		</div><!-- /.moment-inner -->
+	</div><!-- /.moment-wrapper -->
+
+	<div class="dirty_indicator"><span class="label label-important">Unsaved Changes</span></div>
+</script><!-- /#moment_template -->
+
+<script type="text/html" id="error_template">
+	<p>[!= dt.message !]</p>
+	<dl>
+		[! _.each(dt.error_map, function(value, key, dict){ !]
+			<dt>[!= key !]</dt>
+
+			[! _.each(value, function(item, index, list){ !]
+				<dd>[!= item !]</dd>
+			[! }); !]
+		[! }); !]
+	</dl>
+</script>
+
+<script type="text/html" id="array_template">
+	[! if (dt.isArray) { !]
+		<fieldset data-item-name="[!= dt.key !]" class="array [!= dt.limit_to_contexts.length ? 'limit ' + dt.limit_to_contexts.join(' ') : '' !]">
+			<legend class="array_header">[!= dt.key !]</legend><!-- /.array_header -->
+			[! 	var counter = 0, limit = dt.internals.length;
+				while (counter < limit) { !]
+					<div class="data_item" data-item>[!= dt.internals[counter] !]</div>
+				[! counter++; }; !]
+		</fieldset>
+	[! } else if (dt) { !]
+		<fieldset class="[!= dt.limit_to_contexts.length ? 'limit ' + dt.limit_to_contexts.join(' ') : '' !]">
+			[!= dt.internals[0] !]
+		</fieldset>
+	[! }; !]
+</script>
+
+<script type="text/html" id="schema_shorttext">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+		<dd>[!= dt.value || '&ndash;' !]</dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_longtext">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+		<dd>[!= dt.value || '&ndash;' !]</dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_imagepath">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+		[! if (dt.value.length) { !]
+			<dd class="centers"><img class="schema_thumb" src="[!= dt.util.imagid_path('thumb-large', dt.value) !]"/></dd>
+		[! } else { !]
+			<dd class="centers"><em>No image to display.</em></dd>
+		[! }; !]
+	</dl>
+</script>
+
+<script type="text/html" id="schema_embed">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+		<dd class="text-mono">[!= dt._.escape(dt.value) !]</dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_flag">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+		<dd>[!= dt.value !]</dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_list">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+		<dd class="static_list">
+			[!
+				if (dt.value.length) {
+					var counter = 0, limit = dt.value.length;
+					while (counter < limit) { !]
+						<span class="static_list_item">[!= dt.value[counter].name !]</span>
+
+					[!	counter++;
+					};
+				} else { !]
+					<em>None</em>
+				[! };
+			!]
+		</dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_date">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+		<dd>[!= (dt.value ? dt.__.strftime('%Y-%m-%d %T %Z', new Date(dt.value * 1000)) : '') !]</dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_select">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+		<dd>[!= dt.schema.options[dt.value] || 'no value selected' !]</dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_user_search">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+
+		[! if (dt.value) { !]
+			<dd><span><img class="user_avatar" src="[!= dt.value.image !]"/> [!= dt.value.first_name !] [!= dt.value.last_name !]</span></dd>
+		[! } else { !]
+			<dd>No user selected.</dd>
+		[! }; !]
+	</dl>
+</script>
+
+<script type="text/html" id="schema_story_search">
+	<dl>
+		<dt>[!= dt.label !]</dt>
+
+		[! if (dt.value) { !]
+			<dd>[!= dt.value.title !]</dd>
+		[! } else { !]
+			<dd>No story selected.</dd>
+		[! }; !]
+	</dl>
+</script>

@@ -1,0 +1,78 @@
+<div class="photo_uploader well well-small">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#">Upload</a></li>
+	</ul>
+
+	[! var is_multiple = dt.upload_count > 1; !]
+
+	<div class="body">
+		<fieldset class="adding">
+		[! if (is_multiple) { !]
+			<legend><span class="lsf-bicon" lsf="image">Add Photos to Queue</span></legend>
+		[! } else { !]
+			<legend><span class="lsf-bicon" lsf="image">Select Photo</span></legend>
+		[! }; !]
+
+			<form method="post" action="#">
+				<dl>
+					<dt><label>Select File[!= is_multiple ? 's' : '' !]</label></dt>
+					<dd><input type="file" name="file" [!= (is_multiple ? 'multiple' : '') !]/></dd>
+				</dl>
+			</form>
+		</fieldset><!-- /.adding -->
+
+		<fieldset class="queue">
+		[! if (is_multiple) { !]
+			<legend><span class="heading lsf-bicon" lsf="list">Current Queue</span></legend>
+		[! } else { !]
+			<legend><span class="lsf-bicon" lsf="image">Current Photo to Upload</span></legend>
+		[! }; !]
+
+			<div class="queue_list_wrapper">
+				<table class="queue_list table table-bordered table-condensed">
+					<colgroup>
+						<col width="*"/>
+						<col width="20%"/>
+						<col width="15%"/>
+					</colgroup>
+
+					<thead>
+						<tr>
+							<th>filename</th>
+							<th>size</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+
+					[! if (is_multiple) { !]
+					<tfoot>
+						<tr>
+							<td><strong class="total_count">0</strong> items of <strong>[!= dt.upload_count !]</strong> maximum</td>
+							<td><strong class="total_size">0</strong> total</td>
+							<td><button class="btn btn-small photo_uploader_remove_all">Remove All</button></td>
+						</tr>
+					</tfoot>
+					[! }; !]
+
+					<tbody>
+
+					</tbody>
+				</table>
+			</div><!-- /.queue_list_wrapper -->
+
+			<div class="progress progress-info progress-striped">
+				<div class="bar notransition" width="0%"></div><!-- /.bar -->
+			</div><!-- /.progress -->
+
+			<p class="photo_uploader_actions">
+			[! if (is_multiple) { !]
+				<button class="btn btn-success photo_uploader_upload">Start Queue</button>
+				<button class="btn photo_uploader_remove_all">Clear Queue</button>
+			[! } else { !]
+				<button class="btn btn-success photo_uploader_upload">Start Upload</button>
+				<button class="btn photo_uploader_remove_all">Clear Upload</button>
+			[! }; !]
+			</p>
+		</fieldset><!-- /.queue -->
+	</div><!-- /.body -->
+</div><!-- /.photo_uploader -->

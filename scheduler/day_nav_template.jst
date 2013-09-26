@@ -1,0 +1,19 @@
+<div class="scheduler_actionbar">
+		<ul class="nav">
+			<li class="divider-vertical"></li>
+			<li class="disabled"><a>Jump to:</a></li>
+			<li><a href="#" data-index="0" class="scheduler_nav_link"><span class="lsf-bicon"lsf="dailycalendar">Today</span></a></li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="lsf-aicon" lsf="dropdown">This Week</span></a>
+				<ul class="dropdown-menu scheduler_day_nav_target">
+				[!
+					var counter = 0; limit = dt.days.length;
+					while (counter < limit) {
+						var current = dt.days[counter];
+				!]
+					<li><a href="#" data-index="[!= counter !]" class="scheduler_nav_link">[!= current.day_title !]</a></li>
+				[! counter++; }; !]
+				</ul>
+			</li>
+		</ul>
+</div><!-- /.scheduler_actionbar -->

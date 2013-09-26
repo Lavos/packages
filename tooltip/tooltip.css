@@ -1,0 +1,10 @@
+.lucid_tooltip { display: block; padding: 7px; background-color: rgba(0, 0, 0, .7); border-radius: 4px; color: white; position: absolute; top: -30000em; left: -30000em; }
+
+.lucid_tooltip:after { position: absolute; border-style: solid; content: ''; display: inline-block; }
+.lucid_tooltip.top:after { bottom: -7px; left: 14px; border-color: rgba(0, 0, 0, .7) transparent transparent transparent; border-width: 7px 7px 0 7px; }
+.lucid_tooltip.bottom:after { top: -7px; left: 14px; border-color: transparent transparent rgba(0, 0, 0, .7) transparent; border-width: 0 7px 7px 7px; }
+.lucid_tooltip.left:after { top: 14px; right: -7px; border-color: transparent transparent transparent rgba(0, 0, 0, .7); border-width: 7px 0 7px 7px; }
+.lucid_tooltip.right:after { top: 14px; left: -7px; border-color: transparent rgba(0, 0, 0, .7) transparent transparent; border-width: 7px 7px 7px 0; }
+
+.lucid_tooltip { opacity: 0; -webkit-transition: opacity .250s linear; -moz-transition: opacity .250s linear; transition: opacity .250s linear; }
+.lucid_tooltip.reveal { opacity: 1; }

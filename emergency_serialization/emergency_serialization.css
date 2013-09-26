@@ -1,0 +1,4 @@
+.emergency_serialization { padding: 25px; width: 500px; }
+	.emergency_serialization .error_message { padding: 0; margin: 0; }
+	.emergency_serialization textarea { box-sizing: border-box; width: 100%; }
+	.emergency_serialization .emergency_serialization_actions { text-align: right; }

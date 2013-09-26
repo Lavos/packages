@@ -1,0 +1,14 @@
+.grid_editor { }
+	.grid_editor .grid_editor_items_target {  }
+
+	.grid_editor .grid_editor_placeholder { float: left; display: none; padding: 5px; }
+	.grid_editor.dragging .grid_editor_placeholder { display: block; }
+		.grid_editor.dragging .grid_editor_placeholder .grid_editor_placeholder_inset { background-color: gray; padding: 6px; }
+
+	.grid_editor .grid_editor_item { float: left; padding: 5px; position: relative; cursor: move; }
+		.grid_editor .grid_editor_inset { background-color: #efefef; padding: 5px; border: 1px solid #ccc; }
+		.grid_editor .grid_editor_item.dragging { display: none; }
+
+		.grid_editor .grid_editor_item .grid_editor_controls { position: absolute; top: 0; right: 0; }
+		.grid_editor .grid_editor_item .grid_editor_controls .input { font-size: 11px; width: 25px; line-height: 16px; height: auto; padding: 2px 6px; margin: 0; }
+		

@@ -1,0 +1,25 @@
+<section class="clearfix">
+	<div class="toolbar clearfix">
+		<div class="pull-left">
+			<div class="btn-group">
+				<button class="btn btn-small btn-warning lsf-bicon" lsf="plus" data-action="add">Add</button>
+				<button class="btn btn-small lsf-bicon" lsf="clear" data-action="clear">Clear</button>
+				[! if (dt.type === 'watermark') { !]
+					<button type="button" class="btn btn-small lsf-bicon" lsf="tile" data-action="equalize">Equalize Scaling</button>
+				[! }; !]
+			</div>
+		</div><!-- /.pull-left -->
+
+		<div class="pull-right">
+			<button class="btn btn-small btn-success" data-action="accept">Accept</button>
+			<button class="btn btn-small" data-action="cancel">Cancel</button>
+		</div><!-- /.pull-right -->
+	</div><!-- /.toolbar -->
+
+	<div class="crop_wrapper">
+		<div class="croparea" style="height: [!= dt.effective_height !]px; width: [!= dt.effective_width !]px;">
+			<div class="full effective" style="background-image: url([!= dt.type === 'crop' && dt.watermarked ? dt.watermarked : dt.effective !]);"></div>
+			<div class="full crop_canvas"></div>
+		</div><!-- /.croparea -->
+	</div><!-- /.crop_wrapper -->
+</section>

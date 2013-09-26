@@ -1,0 +1,9 @@
+.bulk_photo_uploader { width: 775px; padding: 15px; }
+	.bulk_photo_uploader .bulk_photo_uploader_preview { padding: 0 15px 25px 15px; }
+	.bulk_photo_uploader .bulk_photo_uploader_actions { text-align: right; }
+
+	.bulk_photo_uploader .bulk_photo_uploader_thumb { float: left; cursor: pointer; padding: 5px; background-color: white; box-shadow: 0 3px 8px rgba(0, 0, 0, .4); margin: 0 7px 7px 0; height: 100px; width: 100px; position: relative; }
+		.bulk_photo_uploader .bulk_photo_uploader_thumb p { line-height: 80px; color: black; font-size: 80px; vertical-align: middle; text-align: center; font-weight: bold; }
+		.bulk_photo_uploader .bulk_photo_uploader_thumb img { position: absolute; top: 5px; left: 5px; }
+		.bulk_photo_uploader .bulk_photo_uploader_thumb:hover img { opacity: .4; }
+

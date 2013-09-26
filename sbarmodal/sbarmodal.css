@@ -1,0 +1,8 @@
+.sbar_noscroll { overflow: hidden; height: auto; }
+
+.sbarmodal { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: black; background-color: rgba(0, 0, 0, .7); overflow-y: auto; z-index: 2000; }
+.sbarmodal.sbar_show { display: block; }
+	.sbarmodal .sbar_main { position: static; top: 125px; }
+	.sbarmodal .sbar_content { max-width: 990px; min-width: 300px; position: relative; margin: 45px auto; background-color: white; box-shadow: 0 0 30px rgba(0, 0, 0, .7); }
+	.sbarmodal .sbar_close { display: block; position: absolute; top: -16px; right: -16px; background-color: red; height: 30px; width: 30px; border-radius: 100%; text-align: center; line-height: 24px; font-size: 28px; box-shadow: 0 0 10px rgba(0, 0, 0, .5); font-weight: bold; color: white; text-decoration: none; }
+		.sbarmodal .sbar_close .sbar_text { color: white; text-decoration: none; }

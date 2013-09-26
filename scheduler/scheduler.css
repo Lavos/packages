@@ -1,0 +1,28 @@
+.scheduler { padding: 0 0 60px 0; }
+	.scheduler .depressed { background-color: rgba(0, 0, 0, .1); box-shadow: 1px 1px 0 rgba(255, 255, 255, .4), inset 1px 1px 0 rgba(0, 0, 0, .1); border-radius: 4px; }
+
+	.scheduler .scheduler_columns {  }
+		.scheduler .scheduler_columns .scheduler_day_wrapper { width: 460px; }
+		.scheduler .scheduler_columns .scheduler_puck_wrapper { position: fixed; top: 120px; left: 530px; bottom: 0; width: 375px; overflow: auto; padding: 0 0 25px 0; }
+
+	.scheduler .scheduler_day { display: none; }
+	.scheduler .scheduler_day.active { display: block; }
+
+	.scheduler .scheduler_slot { margin: 0; padding: 5px; border-bottom: 1px solid #ccc; }
+		.scheduler .scheduler_slot:last-child { border: 0; }
+		.scheduler .scheduler_slot p { margin: 0; padding: 0; }
+
+		.scheduler .scheduler_slot .scheduler_heading,
+		.scheduler .scheduler_slot .scheduler_drop_target { float: left; }
+
+		.scheduler .scheduler_slot .scheduler_heading { margin: 0 10px 0 0; }
+		.scheduler .scheduler_slot .scheduler_drop_target { min-height: 30px; padding: 5px; width: 290px; }
+		.scheduler .scheduler_slot .scheduler_slot_actions { opacity: .2; float: right; text-align: right; }
+		.scheduler .scheduler_slot.associated .scheduler_slot_actions { opacity: 1; }
+
+	.scheduler .scheduler_puck { margin: 0 0 7px 0; padding: 3px 7px; width: 270px; background-color: #ccccff; border: 2px dashed #9999ff; cursor: pointer; }
+	.scheduler .scheduler_slot .scheduler_puck { margin: 0; border-style: solid; border-color: #99ff99; background-color: #ccffcc; }
+		.scheduler .scheduler_puck p { margin: 0; }
+	.scheduler .scheduler_puck.dragging { display: none; }
+
+	.scheduler .scheduler_addslot p { text-align: right; }

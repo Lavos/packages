@@ -1,0 +1,17 @@
+.subset_manager { }
+	.subset_manager .subset_manager_item_target { position: relative; margin: 0 0 10px 0; }
+
+	.subset_manager .subset_manager_item { background-color: #dff0d8; position: relative; min-height: 40px; border: 1px solid transparent; margin: 0 0 1px 0; }
+	.subset_manager .subset_manager_item:nth-child(2n) { background-color: #d0e4ca; }
+	.subset_manager.dragging .subset_manager_item.over { border-color: red transparent transparent transparent; }
+	.subset_manager.dragging .subset_manager_item.under { border-color: transparent transparent red transparent; }
+
+		.subset_manager .subset_manager_item .subset_manager_item_handle { position: absolute; top: 0; left: 3px; cursor: move; }
+			.subset_manager .subset_manager_item .subset_manager_item_handle p { color: rgba(0, 0, 0, .4); }
+		.subset_manager .subset_manager_item .subset_manager_item_copy { margin: 0 75px 0 25px; font-size: 12px; padding: 5px; color: #468847; }
+		.subset_manager .subset_manager_item .subset_manager_item_actions { position: absolute; top: 7px; right: 7px; }
+
+	.subset_manager .subset_manager_actions span.subset_manager_action_copy { margin: 0 10px 0 0; }
+	.subset_manager .subset_manager_actions p { text-align: right; }
+
+	.subset_manager .subset_manager_placeholder { border: 2px dotted #ccc; height: 34px; padding: 2px; margin: 0 0 1px 0; }

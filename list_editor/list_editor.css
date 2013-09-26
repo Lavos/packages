@@ -1,0 +1,8 @@
+.list_editor { }
+	.list_editor .list_editor_target { padding: 0 0 10px 0; }
+	.list_editor .list_editor_item { cursor: pointer; line-height: 15px; padding: 2px 5px; display: inline-block; background-color: #ffffaa; font-size: 12px; box-shadow: 0 1px 1px rgba(0, 0, 0, .3); margin: 0 4px 4px 0; }
+		.list_editor .list_editor_item .delete { color: rgba(255, 0, 0, .5); font-size: 130%; }
+		.list_editor .list_editor_item:hover .delete { color: rgba(255, 0, 0, 1); }
+
+	.list_editor .empty_message { display: none; color: #666; font-style: italic; font-size: 11px; line-height: 15px; }
+	.list_editor_empty .empty_message { display: block; }

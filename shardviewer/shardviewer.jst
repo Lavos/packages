@@ -1,0 +1,39 @@
+<div class="shardviewer">
+	<div class="row-fluid">
+		<div class="shardviewer_filter_master hide">
+			<form method="POST" action="#">
+				<p class="input-append">
+					<input type="text" class="input input-xlarge" name="filter" placeholder="Enter Filter Keywords"/>
+					<input class="btn" type="submit" value="Filter" data-shardviewer-filter-action="filter"/>
+					<input class="btn" type="reset" value="Clear" data-shardviewer-filter-action="clear"/>
+				</p>
+			</form>
+		</div><!-- /.shardviewer_filter_master -->
+	</div><!-- /.row-fluid -->
+
+	<div class="row-fluid mode-master">
+		<div class="mode mode-display">
+			<div class="shardviewer_table_master">
+				[!= dt.table !]
+			</div><!-- .shardviewer_table_master -->
+		</div><!-- /.mode.mode-display -->
+
+		<div class="mode mode-empty">
+			<div class="alert alert-warning">
+				No items to display.
+			</div><!-- /.alert -->
+		</div><!-- /.mode-empty -->
+	</div><!-- /.row -->
+
+	<div class="row-fluid">
+		<div class="shardviewer_pagination_master">
+			<p class="input-prepend input-append">
+				<button class="btn" data-shardviewer-direction="back" data-shardviewer-movement="first"><span class="lsf-bicon" lsf="left">First</span></button>
+				<button class="btn" data-shardviewer-direction="back" data-shardviewer-movement="previous"><span class="lsf-bicon" lsf="back">Previous</span></button>
+				<input type="text" class="input input-small shardviewer_jumper" name="jumper" placeholder="&ndash;" maxlength="6" value=""/>
+				<button class="btn" data-shardviewer-direction="forward" data-shardviewer-movement="next"><span class="lsf-aicon" lsf="next">Next</span></button>
+				<button class="btn" data-shardviewer-direction="forward" data-shardviewer-movement="last"><span class="lsf-aicon" lsf="right">Last</span></button>
+			</p>
+		</div><!-- /.shardviewer_pagination_master -->
+	</div><!-- /.row -->
+</div><!-- /.shardviewer -->

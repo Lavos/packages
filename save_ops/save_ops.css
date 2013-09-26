@@ -1,0 +1,5 @@
+.save_ops { }
+	.save_ops .mode { display: none; }
+
+	.save_ops.loading .mode.loading,
+	.save_ops.waiting .mode.waiting { display: block; }

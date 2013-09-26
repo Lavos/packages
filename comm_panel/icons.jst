@@ -1,0 +1,17 @@
+[!
+	var icon_map = {
+		open: 'check',
+		closed: 'ban'
+	};
+
+	var word_map = {
+		open: 'online',
+		closed: 'offline'
+	};
+!]
+
+<p>
+<span class="comm_panel_icon panel_icon-message lsf">comment</span>
+<span class="comm_panel_icon panel_icon-state lsf-bicon" lsf="[!= icon_map[dt.state] !]">[!= word_map[dt.state] !]</span>
+<span class="comm_panel_icon panel_icon-users lsf-bicon" lsf="users"><strong>[!= dt.users || 0 !]</strong> users on this page</span>
+</p>

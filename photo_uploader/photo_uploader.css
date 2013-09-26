@@ -1,0 +1,9 @@
+.photo_uploader { }
+	.photo_uploader .queue_list_wrapper { margin: 0 0 25px 0; background-color: white; }
+	.photo_uploader .queue_list { margin: 0; }
+		.photo_uploader .queue_list tbody tr:hover td { background-color: #ffffe0; }
+	.photo_uploader .queue_item { font-size: 11px; }
+
+	.photo_uploader .photo_uploader_actions { text-align: right; }
+	.photo_uploader .progress .bar.notransition { -webkit-transition: none; transition: none; }
+

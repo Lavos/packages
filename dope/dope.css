@@ -1,0 +1,36 @@
+.dope { }
+	.dope .dope_actions p { text-align: right; }
+
+.dope dd {  }
+
+.dope dd,
+.dope dt { margin: 0 0 5px 0; }
+
+.dope label { font-weight: bold; text-transform: uppercase; font-size: 16px; }
+.dope dd.description,
+.dope dd.instructions { font-size: 12px; }
+
+.field { padding: 0 0 1.5em 0; }
+.field .field { margin: 0 0 0 2em; border: 0; }
+
+.field dl { margin: 0; }
+
+.field .imagepath_photo_preview { font-size: 30px; color: rgba(0, 0, 0, .3); margin: 0 0 0 5px; }
+.field .imagepath_photo_preview:hover { color: rgba(0, 0, 0, 1); }
+
+.field .selected_holder { display: inline-block; height: 32px; line-height: 32px; padding: 0 10px; border: 2px dashed #ccc; margin: 0 5px 0 0; }
+.field .user_avatar { height: 20px; width 20px; vertical-align: middle; }
+
+[data-stats-target] { font-size: 11px; margin: 0 0 0 30px; color: #333; }
+	[data-stats-target] .value { font-weight: bold; }
+	[data-stats-target] .key { margin: 0 7px 0 0; }
+
+
+.dope .image_master { padding: 0 0 10px 0; }
+	.dope .image_master .image_group { display: inline-block; vertical-align: middle; padding: 3px; border: 2px dashed #ccc; margin: 0 15px 0 0; }
+	.dope .image_master figure { margin: 3px; padding: 0 5px 5px 5px; background-color: white; border: 1px solid #ccc; box-shadow: 0 2px 5px rgba(0, 0, 0, .2); display: inline-block; vertical-align: top; }
+	.dope .image_master figure.original { background-color: #ffffdd; border-color: #cca; }
+		.dope .image_master figure figcaption { text-align: center; font-size: 12px; }
+			.dope .image_master figure img { max-width: 200px; }
+			.dope .image_master figure .controls { margin: 5px 0 0 0; }
+			.dope .image_master figure .controls p { text-align: center; margin: 0; padding: 0; }

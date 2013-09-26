@@ -1,0 +1,38 @@
+.balloon { position: absolute; z-index: 3000; }
+.balloon.balloon-hidden { display: none; }
+	.balloon .balloon-frame { position: absolute; border-width: 1px; border-style: solid; box-shadow: 0 2px 4px rgba(0, 0, 0, .2); max-width: 500px; }
+
+	.balloon.balloon-top .balloon-frame { bottom: 0; left: 0; margin: 15px 0; }
+	.balloon.balloon-bottom .balloon-frame { top: 0; left: 0; margin: 15px 0; }
+	.balloon.balloon-left .balloon-frame { top: 0; right: 0; margin: 0 15px; }
+	.balloon.balloon-right .balloon-frame { top: 0; left: 0; margin: 0 15px; }
+
+	.balloon .balloon-content { overflow: hidden; padding: 5px 20px 5px 10px; color: black; }
+	.balloon h3 { font-size: 14px; font-weight: bold; }
+	.balloon .balloon-close { position: absolute; top: 0; right: 2px; font-size: 20px; color: rgba(0, 0, 0, .15); cursor: pointer; }
+	.balloon .balloon-close:hover { color: rgba(0, 0, 0, .3); }
+
+	.balloon .balloon-arrow,
+	.balloon .balloon-arrow:after { position: absolute; border-style: solid; content: ''; display: inline-block; border-color: transparent; border-width: 10px; }
+
+	.balloon.balloon-top .balloon-arrow { bottom: -20px; left: 10px; border-bottom-width: 10px; border-top-color: rgba(0, 0, 0, .2); }
+	.balloon.balloon-top .balloon-arrow:after { bottom: -9px; right: -10px; } 
+
+	.balloon.balloon-bottom .balloon-arrow { top: -20px; left: 10px; border-top-width: 10px; border-bottom-color: rgba(0, 0, 0, .2); }
+	.balloon.balloon-bottom .balloon-arrow:after { bottom: -11px; right: -10px; } 
+
+	.balloon.balloon-left .balloon-arrow { top: 5px; right: -20px; border-right-width: 10px; border-left-color: rgba(0, 0, 0, .2); }
+	.balloon.balloon-left .balloon-arrow:after { bottom: -10px; right: -9px; } 
+
+	.balloon.balloon-right .balloon-arrow { top: 5px; left: -20px; border-left-width: 10px; border-right-color: rgba(0, 0, 0, .2); }
+	.balloon.balloon-right .balloon-arrow:after { bottom: -10px; right: -11px; } 
+
+.balloon.balloon-white { }
+	.balloon.balloon-white .balloon-frame { background-color: white; border-color: #ccc; }
+	.balloon.balloon-top .balloon-arrow:after { border-top-color: white; }
+	.balloon.balloon-bottom .balloon-arrow:after { border-bottom-color: white; }
+	.balloon.balloon-left .balloon-arrow:after { border-left-color: white; }
+	.balloon.balloon-right .balloon-arrow:after { border-right-color: white; }
+
+	.balloon.balloon-white h3 { padding: 0; margin: 0; line-height: 2em; }
+	.balloon.balloon-white p { padding: 0; margin: 0 0 .5em 0; }

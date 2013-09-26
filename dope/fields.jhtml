@@ -1,0 +1,165 @@
+<script type="text/html" id="schema_fields_array">
+	<h3 class="legend">[!= dt.keyname !]</h3>
+</script>
+
+<script type="text/html" id="schema_shorttext">
+	<dl data-stats>
+		<dt><label>[!= dt.label !]</label></dt>
+	[! if (dt.description) { !]
+		<dd class="description text-info">[!= dt.description !] <span data-stats-target></span></dd>
+	[! }; !]
+		<dd><input class="span8" type="text" name="[!= dt.keyname !]" value="[!= extra._.escape(dt.data) !]" data-field-value data-stats-input/></dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_longtext">
+	<dl data-stats>
+		<dt><label>[!= dt.label !]</label></dt>
+	[! if (dt.description) { !]
+		<dd class="description text-info">[!= dt.description !] <span data-stats-target></span> <btn class="btn btn-small" data-armada-direction="bottom" data-armada="textile" data-armada-content-id="textile_help">Formatting Help</button></dd>
+	[! }; !]
+		<dd><textarea name="[!= dt.keyname !]" rows="12" class="span12" data-field-value data-stats-input>[!= dt.data !]</textarea></dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_imagepath">
+	<dl class="imagepath">
+		<dt><label>[!= dt.options.label !]</label></dt>
+	[! if (dt.options.description) { !]
+		<dd class="description text-info">[!= dt.options.description !]</dd>
+	[! }; !]
+		<dd>Select File to Upload: <input type="file" data-imagepath-file/> <button class="btn upload_button" data-imagepath-upload>Upload Photo</button></dd>
+	</dl>
+
+	[! console.dir(dt); !]
+
+	[! if (dt.image.path) {
+		if (!extra._.isEmpty(dt.watermark_data)) {
+			var wsrc = extra.util.crop_path('thumb-large', dt.image.path) + extra.__.toQueryParams({ w: JSON.stringify(dt.watermark_data) });
+		} else {
+			var wsrc = extra.util.imagid_path('thumb-large', dt.image.path);
+		};
+	!]
+		<div class="image_master">
+			<div class="image_group">
+				<figure class="image_wrapper original">
+					<figcaption>Original Image</figcaption>
+					<img src="[!= extra.util.imagid_path('thumb-large', dt.image.path) !]"/>
+					<div class="controls">
+						<p><button class="btn btn-mini btn-danger lsf-bicon" lsf="delete" data-imagepath-remove>Remove Image</button></p>
+					</div>
+				</figure>
+
+			[! if (!extra._.isEmpty(dt.options.watermark_profiles)) { !]
+				<figure class="image_wrapper">
+					<figcaption>Watermarks</figcaption>
+					<img src="[!= wsrc !]"/>
+					<div class="controls">
+						<p><button class="btn btn-mini btn-info lsf-bicon" lsf="star" data-type="watermark" data-profile="star">Edit Watermarks</button></p>
+					</div>
+				</figure>
+			[! }; !]
+			</div><!-- /.image_group -->
+
+			[! extra.__.each(dt.options.crop_profiles, function(value, key){
+				if (dt.crop_data[key] || !extra._.isEmpty(dt.watermark_data)) {
+					var src = extra.util.crop_path(value.imagid_profile, dt.image.path), params = {};
+
+					if (dt.crop_data[key]) {
+						params['c'] = JSON.stringify(dt.crop_data[key]);
+					};
+
+					if (!extra._.isEmpty(dt.watermark_data)) {
+						params['w'] = JSON.stringify(dt.watermark_data);
+					};
+
+					src += extra.__.toQueryParams(params);
+				} else {
+					var src = extra.util.imagid_path(value.imagid_profile, dt.image.path);
+				};
+			!]
+				<figure class="image_wrapper">
+					<figcaption>[!= value.label !]</figcaption>
+					<img src="[!= src !]"/>
+					<div class="controls">
+						<p><button class="btn btn-mini btn-info lsf-bicon" lsf="scissors" data-type="crop" data-profile="[!= key !]">Recrop</button></p>
+					</div>
+				</figure>
+			[! }); !]
+		</div><!-- /.image_master -->
+	[! }; !]
+</script>
+
+<script type="text/html" id="schema_embed">
+	<dl>
+		<dt><label>[!= dt.label !]</label></dt>
+	[! if (dt.description) { !]
+		<dd class="description text-info">[!= dt.description !]</dd>
+	[! }; !]
+		<dd><textarea class="span8 text-mono" rows="5" name="[!= dt.keyname !]" data-field-value>[!= dt.data !]</textarea></dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_flag">
+	<dl>
+		<dd><label class="checkbox"><input type="checkbox" name="[!= dt.keyname !]" value="true" [!= (dt.data ? 'checked' : '') !] data-field-value/> [!= dt.description || dt.label || dt.keyname !]</label></dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_list">
+	<dl>
+		<dt><label>[!= dt.label !]</label></dt>
+	[! if (dt.description) { !]
+		<dd class="description text-info">[!= dt.description !]</dd>
+	[! }; !]
+		<dd data-interface="list_editor" data-key-name="[!= dt.keyname !]"></dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_date">
+	<div class="control-group">
+		<div class="controls">
+			<dl>
+				<dt><label>[!= dt.label !]</label></dt>
+			[! if (dt.description) { !]
+				<dd class="description text-info">[!= dt.description !]</dd>
+			[! }; !]
+				<dd class="instructions text-warning">format: YYYY-MM-DD HH:MM:SS, i.e. 2007-08-17 04:12:00</dd>
+				<dd class="input-append"><input type="text" class="input input-large" value="[!= (dt.data ? extra.__.strftime('%Y-%m-%d %T', new Date(dt.data * 1000)) : '') !]" data-field-value/><button class="btn" data-now>Set to Now</button><button class="btn" data-clear>Clear</button></dd>
+				<dd><span class="help-inline"></span></dd>
+			</dl>
+		</div><!-- /.controls -->
+	</div><!-- /.control-group -->
+</script>
+
+<script type="text/html" id="schema_select">
+	<dl>
+		<dt><label>[!= dt.label !]</label></dt>
+		<dd class="description text-info">[!= dt.description !]</dd>
+		<dd><select name="[!= dt.keyname !]" data-field-value>
+		[! extra.__.each(dt.value.options, function(value, key){ !]
+			<option value="[!= key !]" [!= (key === dt.data ? 'selected="selected"' : '') !]>[!= value !]</option>
+		[! }); !]
+		</select></dd>
+	</dl>
+</script>
+
+<script type="text/html" id="schema_user_search">
+	<dl>
+		<dt><label>[!= dt.label !]</label></dt>
+		<dd class="description text-info">[!= dt.description !]</dd>
+		<dd><span class="selected_holder"><span class="selected_target">No User Selected</span></span> <button class="btn" data-action="myself">Select Myself</button> <button class="btn" data-action="clear">Clear</button></dd>
+	</dl>
+
+	<div class="well well-small shardviewer_target"></div><!-- /.shardviewer_target -->
+</script>
+
+<script type="text/html" id="schema_story_search">
+	<dl>
+		<dt><label>[!= dt.label !]</label></dt>
+		<dd class="description text-info">[!= dt.description !]</dd>
+		<dd><span class="selected_holder"><span class="selected_target">No User Selected</span></span> <button class="btn" data-action="clear">Clear</button></dd>
+	</dl>
+
+	<div class="well well-small shardviewer_target"></div><!-- /.shardviewer_target -->
+</script>

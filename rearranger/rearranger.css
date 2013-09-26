@@ -1,0 +1,23 @@
+.rearranger { min-width: 200px; padding: 15px; }
+	.rearranger_item { padding: 5px; margin: 0 0 -1px 0; border-top: 1px solid white; border-bottom: 1px solid transparent; position: relative; background-color: #efefef;
+		background-image: -webkit-linear-gradient(#efefef, white 90%, #efefef 90%, #efefef 100%);
+		background-image: -moz-linear-gradient(#efefef, white 90%, #efefef 90%, #efefef 100%);
+		background-image: linear-gradient(#efefef, white 90%, #efefef 90%, #efefef 100%);
+	}
+
+	.rearranger_item.dragging { background-image: none; }
+
+	.rearranger_item.over,
+	.rearranger_item.under { z-index: 2 }
+	.rearranger_item.over { border-color: red white white white; }
+	.rearranger_item.under { border-color: white white red white; }
+
+	.rearranger_item .rearranger_item_content { margin: 0 85px 0 20px; padding: 0 0 5px 0; }
+
+	.rearranger_item .rearranger_control { position: absolute; top: 5px; }
+
+	.rearranger_item .rearranger_handle { cursor: move; left: 5px; color: rgba(0, 0, 0, .3); }
+	.rearranger_item.dragging .rearranger_handle { visibility: hidden; }
+	.rearranger_item .rearranger_handle:hover { color: rgba(0, 0, 0, .7); }
+
+	.rearranger_item .rearranger_input { right: 5px; }

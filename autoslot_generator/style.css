@@ -1,0 +1,5 @@
+section.choice { margin: 0 0 20px 0; }
+.dotted { padding: 9px; border: 2px dotted #ccc; }
+
+.subset_manager .subset_manager_item.autoslot { background-color: #ccccff; }
+	.subset_manager .subset_manager_item.autoslot .subset_manager_item_copy { color: #4444ff; }
